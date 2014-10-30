@@ -1,0 +1,28 @@
+{
+     "name": "PunyConv",
+     "version": "1.0",
+     "manifest_version": 2,
+     "description": "Convert Punycode",
+     "permissions": [
+        "tabs", "http://*/*", "https://*/*", "clipboardRead"
+     ],
+     "background": {
+         "scripts": [
+             "background.js"
+         ],
+         "persistent": false
+     },
+     "content_scripts": [
+        {
+          "matches" :[
+            "http://*/*",
+            "https://*/*"
+          ],
+          "js" :[
+            "contents/convert.js",
+            "lib/punycode.js"
+          ],
+          "run_at": "document_end"
+       }
+     ]
+}
